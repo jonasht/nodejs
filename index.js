@@ -1,14 +1,10 @@
-const express = require("express")
-const app = express()
-const port = 500
+const {Person} = require("./person")
+// require("./modules/path")
+// require("./modules/fs")
+require('./modules/http')
+
+const person = new Person("Jonas")
 
 
-app.get('/',(req,res)=>{
-    res.send("pagina inicial")
-})
 
-app.listen(port,()=>{
-    console.log("servidor redando")
-
-})
-
+// console.log(person.sayMyName())
