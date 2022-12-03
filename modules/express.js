@@ -11,6 +11,7 @@ app.get('/home', (req, res) => {
 
 })
 
+// pegar todos os usuarios
 app.get('/users', async(req, res) => {
     try {
         const users = await UserModel.find({})
@@ -22,6 +23,20 @@ app.get('/users', async(req, res) => {
     }
 })
 
+// buscar usuario por id
+app.get('/users/:id', async (req, res) => {
+    try {
+         const id = req.params.id
+        const user = await UserModel.findById(id)
+        res.status(200).json(user)
+         
+    } catch (error) {
+        res.status(500).send(error.message)
+
+    }
+})
+
+// criar usuario
 app.post('/users', async (req, res) => {
     try  {
         const user = await UserModel.create(req.body)
