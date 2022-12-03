@@ -48,5 +48,17 @@ app.post('/users', async (req, res) => {
 
 
 })
-const port = 8081
+
+// atualizar usario
+app.path('/users/:id', async (req, res) => {
+    try {
+        const id = req.params.id
+        const user = await UserModel.findByIdAndUpdate(id, req.body, { new:true })
+        res.status(200).json(user)
+
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+const port = 8080
 app.listen(port, () => console.log('funcionando com express na porta', port))
