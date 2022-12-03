@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 
 const connectToDatabase = async () => {
-    await mongoose.connect('mongodb+srv://admin:senha@cluster0.gkv9qrw.mongodb.net/?retryWrites=true&w=majority', 
+    await mongoose.connect('mongodb+srv://admin:bancodedados@cluster0.gkv9qrw.mongodb.net/?retryWrites=true&w=majority', 
     (error) => {
         console.log('username', process.env.MANGO_USERNAME)
         console.log('pass', process.env.MANGO_PASSWORD)
